@@ -5,7 +5,7 @@ date:   2017-03-13 21:17:57 +0800
 excerpt_separator: <!-- excerpt -->
 ---
 
-This is the installation guide for Jekyll on Ubuntu/Raspberry Pi. Normally there won't be any problem to install Ubuntu but installation for Raspberry Pi is a little tricky due to SSL certificate issue.
+This is the installation guide for Jekyll on Ubuntu/Raspberry Pi. Normally there won't be any problem to install on Ubuntu but installation for Raspberry Pi is a little tricky due to SSL certificate issue.
 
 <!-- excerpt -->
 
