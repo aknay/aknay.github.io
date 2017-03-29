@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Scala Collections - map function"
-date:   2017-03-29 21:17:57 +0800
+date:   2017-03-29 10:17:57 +0800
 excerpt_separator: <!-- excerpt -->
 ---
 The purpose of map function is to build a new collection by applying a function to all elements of this concurrent map. Let's explore with more examples.

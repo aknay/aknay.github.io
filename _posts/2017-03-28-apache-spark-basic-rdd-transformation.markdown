@@ -8,9 +8,14 @@ excerpt_separator: <!-- excerpt -->
 RDD transformation is to create a new dataset from an existing one. For example, map is a transformation that passes each dataset element through a function and returns a new RDD representing the results. Let's look at more examples. 
 
 <!-- excerpt -->
+
+### Related Topics
+
+1. [Reference Book](http://shop.oreilly.com/product/0636920028512.do){:target="_blank"}
+
 ### Map Function
 
-We will first create a standalone program. More info can be found [here](http://spark.apache.org/docs/latest/quick-start.html#self-contained-applications){:target="_blank"}.
+We will first create a standalone program. More info can be found [here](http://spark.apache.org/docs/latest/quick-start.html#self-contained-applications){:target="_blank"} to create a standalone program.
 
 **Purpose:** `Apply a function to each element in the RDD and return an RDD of the result.`
 
