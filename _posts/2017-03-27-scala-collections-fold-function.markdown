@@ -88,14 +88,16 @@ For example: In `"Albert"-> 1000`  Map, the `a._1` is `Albert` and the `a._2` is
 > the result is: (Carl,3000)
 
 ### Use Match with Fold
-Here, just want to show that `match` can be used with `fold`. Even though, It doesn't make sense to use in this way.  
+Here, just want to show that `match` can be used with `fold`. In this case, we add all the values which is divisible by 4. Only 4 and 8 are divisiable 4 among the number 1 to 10. So `4 + 8` gives `12`. 
 
 ```scala
-    val result = List(1, 2, 3, 4, 5, 6).fold(0)((a, b) => b % 2 match {
-      case 0 => b
-      case _ => 1
-    })
+    val result: Int = (1 to 10).fold(0)((a, b) =>
+      b % 4 match {
+        case 0 => a + b
+        case _ => a
+      })
+
     println("the result is: " + result)
 ```
 
-> the result is: 6
+> the result is: 12
