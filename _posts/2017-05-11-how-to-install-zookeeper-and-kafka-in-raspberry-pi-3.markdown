@@ -137,7 +137,7 @@ Let's start the producer console first.
 
 Let's start consumer console in another terminal.
 ```sh
-console-consumer.sh --bootstrap-server localhost:9092 --topic hello-kafka
+/usr/local/kafka/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic hello-kafka
 ```
 
 Now if you type in something at terminal of Producer console and enter, it will be displayed in Consumer console as well. That's it.
