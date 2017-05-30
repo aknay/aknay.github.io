@@ -76,6 +76,8 @@ sbt new sbt/scala-seeed.g8
 
 when prompted for the project type `hello`
 
+> :exclamation: Note: If you cannot download due to network authenticity fail on Git after this command `sbt new sbt/scala-seeed.g8`, you can still clone the git by `git clone https://github.com/scala/scala-seed.g8.git`. Once it is cloned, go into `cd scala-seed.g8/src/main/g8` and then start typing `sbt` follow by `run`. You should see `hello`.
+
 Then
 ```sh
 cd hello
