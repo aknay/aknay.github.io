@@ -33,10 +33,12 @@ $ sudo update_rubygems
 $ sudo gem update --system
 ```
 
-### 3. Install GCC and Make
-This bundle is probably installed by now. Just to make sure.
+### 3. Install Dependency Packages
 
-`$ sudo apt-get install build-essential`
+```
+$ sudo apt-get install build-essential
+$ sudo apt-get install zlib1g-dev
+```
 
 ### 4. Install Jekyll
 Now we start installing as Jekyll gem. More info from [here](http://jekyllrb.com/docs/installation/){:target="_blank"}.
