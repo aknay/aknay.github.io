@@ -27,6 +27,12 @@ paginate: 5
 # Build settings
 markdown: kramdown
 theme: jekyll-theme-cayman
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: 'highlight'
 gems:
   - jekyll-feed
   - jemoji
