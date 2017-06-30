@@ -30,7 +30,7 @@ First, Let's look at the `HomeController.scala`, There are two functions `index`
 
 ##### HomeController.scala
 
-```scala
+{% highlight scala linenos %}
 @Singleton
 class HomeController @Inject()(implicit actorSystem: ActorSystem,
                                mat: Materializer
@@ -44,13 +44,12 @@ class HomeController @Inject()(implicit actorSystem: ActorSystem,
   def ws: WebSocket = WebSocket.accept[String, String] { request =>
     ActorFlow.actorRef(out => WebSocketActor.props(out))
   }
-```
-
+{% endhighlight %}
 
 ### WebSocketActor
 Once we get the `ActorRef` from Play framework, we can send WebSocket message back. Now let's look at `WebSocketActor.scala`. Using the Akka, we can simple send a message back to WebSocket using `out ! "your websocket message"`. Becuase I want to send internally and periodically, the `scheduler` is added in this Scala program. So every 1000 millis, the scheduler will send `SendLatestMessage` case object to `WebSocketActor`. This `SendLatestMessage` will trigger to send WebSocket message using `out` as `ActorRef`. You can refer to this line `out ! "Displaying message from Akka at " + Calendar.getInstance().getTime.toString`.
 ##### WebScoketActor.scala
-```scala
+{% highlight scala linenos %}
 object WebSocketActor {
   def props(out: ActorRef): Props = Props(new WebSocketActor(out))
 }
@@ -71,13 +70,13 @@ class WebSocketActor(out: ActorRef) extends Actor with ActorLogging {
 }
 
 case object SendLatestMessage
-``` 
+{% endhighlight %}
 ### HTML and CoffeeScript
 
 Now, let's look at how to establish WebSocket at both `HTML` and `CoffeeScript` files. As you may notice in the HTML file, `@routes.HomeController.ws.webSocketURL()` is URL link for WebSocket. It is same as `ws://localhost:9000/ws` if your are running locally. The CoffeeScript will get that URL and create a new WebSocket. You can refer to this line `ws = new WebSocket $("body").data("ws-url")`. Once data is received from Akka, the `ws.onmessage` will be called and display a message on `message_holder` HTML tag. 
 
 ##### index.scala.html
-```html
+{% highlight html linenos %}
 @()(implicit r: Request[_])
 <!DOCTYPE html>
 <html>
@@ -90,10 +89,10 @@ Now, let's look at how to establish WebSocket at both `HTML` and `CoffeeScript` 
     <div id="message_holder"></div>
 </body>
 </html>
-```
+{% endhighlight %}
 
-#### index.coffee 
-```javascript
+##### index.coffee 
+{% highlight javascript linenos %}
 $ ->
   ws = new WebSocket $("body").data("ws-url")
 
@@ -113,7 +112,7 @@ $ ->
 
   display = (message) ->
     $("#message_holder").text(message)
-```
+{% endhighlight %}
 
 ### Testing
 
