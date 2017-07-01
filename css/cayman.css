@@ -82,3 +82,26 @@ a:hover { text-decoration: underline; }
   div .highlight {
     background-color: #f3f6fa;
   }
+
+/* body */
+
+body {
+  background: #f3f7f8;
+  color: #000;
+  padding: 0;
+  margin: 0;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1.4em;
+  cursor: default;
+  font-family: "ProximaNova", Arial, Helvetica, sans-serif;
+  font-size: 1em;
+  color: #0c323b;
+  font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -o-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
