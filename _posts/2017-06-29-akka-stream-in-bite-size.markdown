@@ -231,7 +231,7 @@ item: Memory
 cost: 32
 ```
 
-#### **Throttle 
+#### **Throttle** 
 
 Before I let you go, we still have one more program to run, my friend. In this program, the data are generated in a timely manner. Let's look at the example. At line `15`, the `source` is generating `5 elements` per `10 second` and burst rate is `2`. You can see from the result that the first two elements are generated in a burst. That's why they are almost in the same second. Once the burst is done, the subsequence element is generated in every two seconds. Why? It is because of the `5 elements per 10 seconds`. For the case of a fast `source` with slow `sink`, we can use this method to back-pressure a up-stream.
 
