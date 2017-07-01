@@ -7,20 +7,20 @@ excerpt_separator: <!-- excerpt -->
 In this tutorial, we will use some of the Akka Stream API to understand. All the following program are small and runnable so that it is easier to get started. 
 <!-- excerpt -->
 
-### Prerequisites
+#### **Prerequisites**
 1. Please make sure both Scala and SBT are installed on your system. Please follow my tutorial post [here]({% post_url 2017-05-09-how-to-install-scala-and-sbt-in-raspberry-pi-3  %}) to install. This is applicable for both Raspberry Pi or any Linux system.
 
-### Reference
+#### **Reference**
 
 1. The Akka Steam docs are really good way to start and it can be found [here](http://doc.akka.io/docs/akka/2.5.3/scala/stream/stream-quickstart.html#stream-quickstart){:target="_blank"}.
 
 2. This stackoverflow [post](https://stackoverflow.com/questions/35120082/how-to-get-started-with-akka-streams){:target="_blank"} is really helpful.
 
 
-### Dependency
+#### **Dependency**
 I am using scala version `2.12.2`. I added my dependency as `"com.typesafe.akka" %% "akka-stream" % "2.5.3"` in `build.sbt` file.
 
-### Source
+#### **Source**
 
 A Source is a data generator and initial input to a Stream. At line `16`, we are creating a source which will generate from 1 to 10. Then we use `runForEach` method to run the `source` at line `17`. Next, we use `terminate` method at line `18` to terminate the system. Normally, the default Akka system will never terminate. 
 {% highlight scala linenos %}
@@ -61,7 +61,7 @@ The result is:
 10
 ```
 
-### Sink
+#### **Sink**
 A Sink is a data consumer and it locates at the endpoint of a stream. At line `13`, a sink is created and its job is to print received data from a source. Then we use a chain of commands to create a `flow`.  Once we run that flow, the data from `source` will be flow to `sink`. 
 
 {% highlight scala linenos %}
@@ -98,7 +98,7 @@ received: 9
 received: 10
 ```
 
-### Flow
+#### **Flow**
  Here, we use `via` to connect multiple `flows` at line `16`. Noticed that flow `multiplier` is reused at the fourth stage. This is one of the nice things about Akka. It gives you greater reusability power.
 
 
@@ -137,7 +137,7 @@ received: 34
 received: 38
 received: 42
 ```
-### Translation of Your Flow Idea with Graphs
+#### **Translation of Your Flow Idea with Graphs**
 
 The exact same result from the previous example can be reproduced with this example. Better yet, the squiggly symbol `~>` helps you to visualize the overall structure easily. It is really like the graphical representation of a flow from one end to another. 
 
@@ -183,7 +183,7 @@ received: 38
 received: 42
 ```
 
-### Broadcast
+#### **Broadcast**
 This example illustrates how we can split a single source stream into two streams. At line `15`, we create a source using two different lists, `zip` it as one single list and pass it to the source. This `source` will flow into the broadcast at line `23` and the output will be `sink` to `printItem` and `printCost` sinks at line `24` and `25`. Those `sinks` are just to print out the element from the broadcast. So the overall process can be realized as the `source` flow into the `broadcast` and then split into two streams based on the element location `_._1 or _._2`. And finally, these two streams go into two `sinks` to generate the result. If you are still not sure, just follow those squiggly symbols. 
 
 {% highlight scala linenos %}
@@ -231,7 +231,7 @@ item: Memory
 cost: 32
 ```
 
-### Throttle 
+#### **Throttle 
 
 Before I let you go, we still have one more program to run, my friend. In this program, the data are generated in a timely manner. Let's look at the example. At line `15`, the `source` is generating `5 elements` per `10 second` and burst rate is `2`. You can see from the result that the first two elements are generated in a burst. That's why they are almost in the same second. Once the burst is done, the subsequence element is generated in every two seconds. Why? It is because of the `5 elements per 10 seconds`. For the case of a fast `source` with slow `sink`, we can use this method to back-pressure a up-stream.
 
