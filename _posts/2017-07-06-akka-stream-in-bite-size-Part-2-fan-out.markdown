@@ -18,13 +18,13 @@ In this second part of Akka stream tutorial, we will mainly touch on the how to 
 #### **Constructing Graphs with Broadcast (1 input, N outputs)**
 This example illustrates how we can split a single source stream into two streams. At line `14`, we create a source using `shoppingList`. This `source` will flow into the broadcast at line `22` and the output will be `sink` to `printItemSink` and `printCostSink` sinks at line `23` and `24` respectively. Those `sinks` are just to print out the element from the broadcast. So the overall process can be realized as the `source` flow into the `broadcast` and then split into two streams based on the element location `_._1 or _._2`. And finally, these two streams go into two `sinks` to generate the result. 
 
-{% mermaid %}
+<div class="mermaid">
 graph LR;
    A(Source)
     A --> B{Broadcast}
     B --> C[Sink]
     B --> D[Sink]
-{% endmermaid %}
+</div>
 
 {% highlight scala linenos %}
 package example
@@ -74,13 +74,13 @@ cost: 32
 
 In this example, we can not only split a single source into two streams but also it can be balanced between two streams. The `flowWithBackPressure` is added at `line 16`in this example to illustrate the effect of the balancing act. As you can see from the result, most of the items are flowing into the `sinkB` because the `sinkA` is flowing with the backpressure.
 
-{% mermaid %}
+<div class="mermaid">
 graph LR;
    A(Source)
     A --> B{Balance}
     B --> C[Sink]
     B --> D[Sink]
-{% endmermaid %}
+</div>
 
 
 {% highlight scala linenos %}
@@ -135,13 +135,13 @@ Sink A::6
 
 This is similar to the Graphs with `Broadcast` but the signature to define the flow is a little bit different. You can treat the `UnzipWith` function at `line 24` as a `split` function. The function can be used for splitting each element from the input stream and sent those elements into multiple downstreams. As compared to the `Broadcast`, the function `UnzipWith[(String, Int),String, Int]` shows exactly how you want to split the elements and how many downstreams. So in this case, we are going to split `(String, Int)` into `String` and `Int` streams.
 
-{% mermaid %}
+<div class="mermaid">
 graph LR;
    A(Source)
     A --> B{UnzipWith}
     B --> C[Sink]
     B --> D[Sink]
-{% endmermaid %}
+</div>
 
 
 
@@ -196,13 +196,13 @@ cost: 32
 This example is similar to the `UnzipWith` but `Unzip` can only split into two streams. Therefore, the declearing of `unzip` function at `line 22` is very simple.
 
 
-{% mermaid %}
+<div class="mermaid">
 graph LR;
    A(Source)
     A --> B{Unzip}
     B --> C[Sink]
     B --> D[Sink]
-{% endmermaid %}
+</div>
 
 {% highlight scala linenos %}
 package example
