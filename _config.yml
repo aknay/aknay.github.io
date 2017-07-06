@@ -33,10 +33,15 @@ kramdown:
   syntax_highlighter: rouge
   syntax_highlighter_opts:
     css_class: 'highlight'
+
+mermaid:
+  src: '/res/mermaid.min.js'
+
 gems:
   - jekyll-feed
   - jemoji
   - jekyll-paginate
+  - jekyll-mermaid
 
 exclude:
   - Gemfile

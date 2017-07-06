@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Akka Stream in Bite Size"
+title:  "Akka Stream in Bite Size - Part 1 (Basic)"
 date:   2017-06-29 10:17:57 +0800
 excerpt_separator: <!-- excerpt -->
 ---
@@ -12,7 +12,7 @@ In this tutorial, we will use some of the Akka Stream API to understand. All the
 
 #### **Reference**
 
-1. The Akka Steam docs are really good way to start and it can be found [here](http://doc.akka.io/docs/akka/2.5.3/scala/stream/stream-quickstart.html#stream-quickstart){:target="_blank"}.
+1. The Akka Steam docs is really good way to start and it can be found [here](http://doc.akka.io/docs/akka/2.5.3/scala/stream/stream-quickstart.html#stream-quickstart){:target="_blank"}.
 
 2. This stackoverflow [post](https://stackoverflow.com/questions/35120082/how-to-get-started-with-akka-streams){:target="_blank"} is really helpful.
 
@@ -181,54 +181,6 @@ received: 30
 received: 34
 received: 38
 received: 42
-```
-
-#### **Broadcast**
-This example illustrates how we can split a single source stream into two streams. At line `15`, we create a source using two different lists, `zip` it as one single list and pass it to the source. This `source` will flow into the broadcast at line `23` and the output will be `sink` to `printItem` and `printCost` sinks at line `24` and `25`. Those `sinks` are just to print out the element from the broadcast. So the overall process can be realized as the `source` flow into the `broadcast` and then split into two streams based on the element location `_._1 or _._2`. And finally, these two streams go into two `sinks` to generate the result. If you are still not sure, just follow those squiggly symbols. 
-
-{% highlight scala linenos %}
-package example
-
-import akka.actor.ActorSystem
-import akka.stream.{ActorMaterializer, ClosedShape}
-import akka.stream.scaladsl.{Broadcast, Flow, GraphDSL, RunnableGraph, Sink, Source}
-
-object AkkaStreamExamples extends App {
-
-  implicit val system = ActorSystem("system")
-  implicit val materializer = ActorMaterializer()
-
-  val items = List("Keyboard", "Mouse", "Monitor", "Memory")
-  val cost = List(5, 2, 79, 32)
-  val shopping: List[(String, Int)] = items zip cost
-  val source = Source(shopping)
-
-  val printItem = Sink.foreach[String](v => println("item: " + v))
-  val printCost = Sink.foreach[Int](v => println("cost: " + v))
-  val g = RunnableGraph.fromGraph(GraphDSL.create() { implicit b =>
-    import akka.stream.scaladsl.GraphDSL.Implicits._
-
-    val bcast = b.add(Broadcast[(String, Int)](2))
-    source ~> bcast.in
-    bcast.out(0) ~> Flow[(String, Int)].map(_._1) ~> printItem
-    bcast.out(1) ~> Flow[(String, Int)].map(_._2) ~> printCost
-    ClosedShape
-  })
-  g.run()
-}
-{% endhighlight %}
-
-The result is:
-
-```
-item: Keyboard
-cost: 5
-item: Mouse
-cost: 2
-item: Monitor
-cost: 79
-item: Memory
-cost: 32
 ```
 
 #### **Throttle** 

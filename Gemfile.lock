@@ -29,6 +29,7 @@ GEM
       safe_yaml (~> 1.0)
     jekyll-feed (0.9.1)
       jekyll (~> 3.3)
+    jekyll-mermaid (1.0.0)
     jekyll-paginate (1.1.0)
     jekyll-sass-converter (1.5.0)
       sass (~> 3.4)
@@ -72,6 +73,7 @@ PLATFORMS
 DEPENDENCIES
   jekyll (= 3.4.2)
   jekyll-feed (~> 0.6)
+  jekyll-mermaid
   jekyll-paginate
   jekyll-theme-cayman (~> 0.0.3)
   jemoji

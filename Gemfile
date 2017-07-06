@@ -16,6 +16,7 @@ gem "minima", "~> 2.0"
 gem 'jekyll-theme-cayman', '~> 0.0.3'
 gem 'jemoji'
 gem 'jekyll-paginate'
+gem 'jekyll-mermaid'
 
 # If you want to use GitHub Pages, remove the "gem "jekyll"" above and
 # uncomment the line below. To upgrade, run `bundle update github-pages`.
