@@ -4,7 +4,7 @@ title:  "Akka Stream in Bite Size - Part 1 (Basic)"
 date:   2017-06-29 10:17:57 +0800
 excerpt_separator: <!-- excerpt -->
 ---
-In this tutorial, we will use some of the Akka Stream API to understand. All the following program are small and runnable so that it is easier to get started. 
+In this tutorial, we will use some of the basic APIs from Akka Stream as quick start guide. All the following programs are small and runnable. So it is really easy to get started and to get it run. 
 <!-- excerpt -->
 
 #### **Prerequisites**
@@ -22,7 +22,14 @@ I am using scala version `2.12.2`. I added my dependency as `"com.typesafe.akka"
 
 #### **Source**
 
-A Source is a data generator and initial input to a Stream. At line `16`, we are creating a source which will generate from 1 to 10. Then we use `runForEach` method to run the `source` at line `17`. Next, we use `terminate` method at line `18` to terminate the system. Normally, the default Akka system will never terminate. 
+A Source is a data generator and initial input to a Stream. It has *exaclty* one `output`. At line `16`, we are creating a source which will generate from 1 to 10. Then we use `runForEach` method to run the `source` at line `17`. Next, we use `terminate` method at line `18` to terminate the system. Normally, the default Akka system will never terminate. 
+
+<div class="mermaid">
+graph LR;
+   A(Source)-->B(downstream)
+   style A fill:#27ae60  ,stroke:#333,stroke-width:4px;
+</div>
+
 {% highlight scala linenos %}
 package example
 
@@ -62,8 +69,12 @@ The result is:
 ```
 
 #### **Sink**
-A Sink is a data consumer and it locates at the endpoint of a stream. At line `13`, a sink is created and its job is to print received data from a source. Then we use a chain of commands to create a `flow`.  Once we run that flow, the data from `source` will be flow to `sink`. 
-
+A Sink is a data consumer and it locates at the endpoint of a stream. It has *exaclty* one `input`. At line `13`, a sink is created and its job is to print received data from a source. Then we use a chain of commands to create a `flow`.  Once we run that flow, the data from `source` will be flow to `sink`. 
+<div class="mermaid">
+graph LR;
+   A(upstream)-->B(Sink)
+   style B fill:#27ae60  ,stroke:#333,stroke-width:4px;
+</div>
 {% highlight scala linenos %}
 package example
 
@@ -99,8 +110,14 @@ received: 10
 ```
 
 #### **Flow**
- Here, we use `via` to connect multiple `flows` at line `16`. Noticed that flow `multiplier` is reused at the fourth stage. This is one of the nice things about Akka. It gives you greater reusability power.
+A Flow serves as a connection between upstream and downstream. It can also transform data elements flowing through it. Here, we use `via` to connect multiple `flows` at line `16`. Noticed that flow `multiplier` is reused at the fourth stage. This is one of the nice things about Akka. It gives you greater reusability power.
 
+<div class="mermaid">
+graph LR;
+   A(upstream)-->B(Flow)
+   B-->C(downstream)
+   style B fill:#27ae60  ,stroke:#333,stroke-width:4px;
+</div>
 
 {% highlight scala linenos %}
 package example
@@ -138,8 +155,16 @@ received: 38
 received: 42
 ```
 #### **Translation of Your Flow Idea with Graphs**
+Here, we are using `GrpahDSL` to express the data flow from previous example with the squiggly symbol `~>`.  These symbols help you to visualize the overall structure easily. It is really like the graphical representation of a flow from one end to another. 
 
-The exact same result from the previous example can be reproduced with this example. Better yet, the squiggly symbol `~>` helps you to visualize the overall structure easily. It is really like the graphical representation of a flow from one end to another. 
+
+<div class="mermaid">
+graph LR;
+   A(source)-->B(multiplier)
+   B-->C(adder)
+   C-->D(multiplier)
+   D-->E(sink)
+</div>
 
 {% highlight scala linenos %}
 package example
