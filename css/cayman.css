@@ -80,7 +80,8 @@ a:hover { text-decoration: underline; }
   .highlight pre code { 
     display: block; 
     white-space: pre; 
-    overflow-x: auto; 
+    overflow-x: auto;
+    overflow-y: hidden; 
     word-wrap: normal; 
   }
   .highlight pre {
