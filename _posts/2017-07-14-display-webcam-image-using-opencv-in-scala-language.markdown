@@ -13,8 +13,11 @@ In this short example, we will use Scala language to retrieve webcam image with 
 #### **Reference**
 1. Library from [bytedeco](https://github.com/bytedeco/sbt-javacv){:target="_blank"}
 
+#### **Complete project**
+1. You can also download/clone the complete project from [github](https://github.com/aknay/TutorialSyleProject/tree/master/JavaCvScala){:target="_blank"}.
+
 #### **SBT Plugin**
-I am using scala version `2.12.2`. I added the plugin in `project/plugins.sbt` as `addSbtPlugin("org.bytedeco" % "sbt-javacv" % "1.14")`. You can check the latest version in their release from [here](https://github.com/bytedeco/sbt-javacv/releases){:target="_blank"}.
+I am using scala version `2.12.2`. I added the plugin in `project/plugins.sbt` as `addSbtPlugin("org.bytedeco" % "sbt-javacv" % "1.15")`. And sbt version is `1.0.2`. You can check the latest version in their release from [here](https://github.com/bytedeco/sbt-javacv/releases){:target="_blank"}.
 
 #### **Test Environment**
 I tested on Ubuntu 16.04.2 using a simple USB webcam. No driver installation.  
@@ -31,7 +34,7 @@ import org.bytedeco.javacpp.opencv_core._
 import org.bytedeco.javacv.FrameGrabber.ImageMode
 import org.bytedeco.javacv.{CanvasFrame, Frame, OpenCVFrameGrabber}
 
-object OpenCvExample extends App {
+object JavaCvExample extends App {
   val canvas = new CanvasFrame("Webcam")
   canvas.setDefaultCloseOperation(javax.swing.JFrame.EXIT_ON_CLOSE)
   val grabber = new OpenCVFrameGrabber(0)
@@ -43,3 +46,10 @@ object OpenCvExample extends App {
   canvas.showImage(img)
 }
 {% endhighlight %}
+
+#### **How to run**
+Assume that you have downloaded/cloned the project, then
+
+If you are using IntelliJ IDE, right click on `JavaCvExample` file and then click `Run` or `Ctrl+Shift+F10`.
+
+If you want to use command line, go to `JavaCvScala` folder and type `sbt run`.
