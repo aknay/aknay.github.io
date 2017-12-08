@@ -2,6 +2,6 @@
 layout: default
 ---
 	<h2>{{ page.title }}</h2>
-		<p class="summary">{{ page.category }}<span class="date">{{ page.date | date: '%B %d, %Y' }}</span></p>
+		<p class="summary">{{ page.category }}<span> <em>Last Updated On: </em> {{ page.last-modified-date | date: '%B %d, %Y' }}</span></p>
 		{{ content }}
 		{% include advertisements.html %}
