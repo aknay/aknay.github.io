@@ -8,7 +8,7 @@ In this tutorial, we will create a Play Framework (Scala) application using Java
 <!-- excerpt -->
 
 #### **Git Hub Project**
-The complete project can be cloned from [here](https://github.com/aknay/TutorialSyleProject/tree/master/AkkaRemote){:target="_blank"}.
+The complete project can be cloned from [here](https://github.com/aknay/TutorialSyleProject/tree/master/play-scala-javascript-routing){:target="_blank"}.
 
 #### **Prerequisites**
 Please make sure both Scala and SBT are installed on your local Linux system. Please follow my tutorial post [here]({% post_url 2017-05-09-how-to-install-scala-and-sbt-in-raspberry-pi-3  %}){:target="_blank"} to install. 
@@ -18,21 +18,19 @@ Please make sure both Scala and SBT are installed on your local Linux system. Pl
 2. [Greate Explanation from StackOverFlow](https://stackoverflow.com/questions/11133059/play-2-x-how-to-make-an-ajax-request-with-a-common-button){:target="_blank"}
 
 
-#### **Overall Setup**
-You can download and start from the scratch using the starter example from [here](https://github.com/playframework/play-scala-starter-example) or you can just download the completed project from [here]() and play with it.
+#### **Overview**
+You can start from the scratch using the starter example from [here](https://github.com/playframework/play-scala-starter-example) or you can just download the completed project from [here]() and play with it.
 
 Briefly, 
-1. We need controller class to define our controller actions
+1. We need a controller class to define controller actions
 2. We define these actions in `JavaScriptReverseRouter` 
 3. We will also need to define these actions in `routes` (just like any routes in Play framework)
 4. We will use JavaScript functions to call these routes from a web page
 5. After successful call, we will display on the web page
-6. In between them, we will also use dummy storage object to store data
-
 
 #### **Add Dependencies**
 
-We will be using scala version `2.12.4`. We will add `guice` and `play test` just like any play framework. Since we will be calling `Ajax` request using `JavaScript`, we will just add `jquery` to our dependencies to make our life easier.  
+We will be using scala version `2.12.4`. We will add `guice` and `play test` as per normal for the play framework. Since we will be calling `Ajax` request using `JavaScript`, we will just add `jquery` to our dependencies to make our life easier.  
 
 ```
 scalaVersion := "2.12.4"
@@ -45,7 +43,7 @@ libraryDependencies += "org.webjars" % "jquery" % "2.1.3"
 
 #### **Home Controller**
 
-We define `getName` and `updateName` actions in `HomeController` class. At `getName` action, we get the name from the storage, add to the Json and then make the response with this Json. At `updateName` action, we get the name from our user and save it to our storage. Then we just again response with Json. In order to call these routes from JavaScript, we need to generate JavaScript Routing. These can be simply done by just adding in `jsRoutes` action.
+We define `getName` and `updateName` actions in `HomeController` class. At `getName` action, we get the name from the storage, add to the JSON and then make the response with this JSON. At `updateName` action, we get the `name` from our user and save it to our storage. Then we just again respond the result with JSON. In order to call these routes from JavaScript, we need to generate JavaScript Routing. These can be simply done by just adding in `jsRoutes` action as shown in `line 28`.
 
 
 {% highlight java linenos %}
@@ -101,13 +99,13 @@ GET     /assets/*file                 controllers.Assets.versioned(path="/public
 {% endhighlight %}
 
 
-#### **Index Html**
+#### **Index HTML file**
 
 The important part of this HTML is that make sure these are added
 1. jQuery library (`jquery.min.js`)
 2. JavaScript file that we gonna use (in this case: `hello.js`)
 3. JavaScript Route (here: `@routes.HomeController.jsRoutes`)
-4. Matching Html Id with `hello.js` file
+4. Matching HTML ID with `hello.js` file
 
 {% highlight java linenos %}
 @(title: String)
@@ -194,6 +192,6 @@ object NameStorage {
 {% endhighlight %}
 
 #### **Result**
-1. Go to project folder and do `sbt run`
+1. Go to project folder and do `sbt run`.
 2. Go to `localhost:9000` using any browser.
-3. Click `GetName` Button. There will be an alert message with `Bob` name if it is the first time loading. You can also change the name at input box. Then clicking on `Set Name` should change the current name automatically using refreshing the page.
+3. Click `GetName` Button. There will be an alert message with `Bob` name without refreshing the page. You can also change the name at input box. Clicking on `Set Name` should change the current name automatically. Again, without refreshing the page.
