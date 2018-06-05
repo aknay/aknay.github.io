@@ -35,6 +35,8 @@ $ sudo dpkg -i scala-2.12.4.deb
 We will use package system to download
 > Note: Make sure time/date of Raspberry Pi is updated. Otherwise, you will have `server certificate verification failed` error and cannot install SBT.
 
+> Note: If you are having error such as `gpg: failed to start the dirmngr '/usr/bin/dirmngr': No such file or directory` while adding the keyserver, then you should first install `dirmngr` by using `sudo apt-get install dirmngr`
+
 ```sh
 $ sudo apt-get install apt-transport-https
 $ echo "deb https://dl.bintray.com/sbt/debian /" | sudo tee -a /etc/apt/sources.list.d/sbt.list
@@ -53,6 +55,8 @@ $ sudo nano /usr/bin/sbt
 
 Add this line on top of the file
 `SBT_OPTS=-Xmx256M` and save it.
+
+> Note: `Xmx256M` means we are allocating maximum 256MB to JVM. You can increase the memory to 512MB and so on. If you want to increase to 512MB then, the code will be `SBT_OPTS=-Xmx512M`.  
 
 You can check again with `$ sbt -d` and SBT info should show something like this below.
 ```
