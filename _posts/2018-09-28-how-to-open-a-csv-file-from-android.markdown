@@ -35,17 +35,17 @@ Here we don't need any extra dependencies. However, `minSdkVersion` must be at l
 #### **Screenshot**
 
 <figure>
-  <div  class="logo-list">
+  <div  class="image-container">
   
-    <div class="logo-list-image">
+    <div class="image-list">
         <img src="{{ site.url }}/assets/device-2018-09-28-191317.png">
     </div>
 
-    <div class="logo-list-image">
+    <div class="image-list">
         <img src="{{ site.url }}/assets/device-2018-09-28-191344.png">
     </div>
 
-     <div class="logo-list-image">
+     <div class="image-list">
         <img src="{{ site.url }}/assets/device-2018-09-28-191407.png">
     </div>
 
