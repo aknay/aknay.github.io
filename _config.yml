@@ -44,6 +44,8 @@ gems:
   - jemoji
   - jekyll-paginate
 
+plugins:
+  - jemoji
 
 
 exclude:
