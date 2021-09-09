@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "How to setup Jekyll on Ubuntu/Raspberry Pi"
-date:   2017-03-13 21:17:57 +0800
+title: "How to setup Jekyll on Ubuntu/Raspberry Pi"
+date: 2017-03-13 21:17:57 +0800
 excerpt_separator: <!-- excerpt -->
 ---
 
@@ -10,11 +10,13 @@ This is the installation guide for Jekyll on Ubuntu/Raspberry Pi. Normally there
 <!-- excerpt -->
 
 ### 1. Install Ruby and gems
-First we will install [Ruby](https://www.ruby-lang.org/en/documentation/installation/){:target="_blank"}.  
+
+First we will install [Ruby](https://www.ruby-lang.org/en/documentation/installation/){:target="\_blank"}.
 
 `$ sudo apt-get install ruby-full`
 
 ### 2. Update Rubygems
+
 Ruby uses gem as package manager. We should get the lastest version of it.
 
 `$ sudo gem update --system`
@@ -22,7 +24,8 @@ Ruby uses gem as package manager. We should get the lastest version of it.
 > :memo: You can check your Rubygems version by `gem --version`
 
 ### 2.1 Update Rubygems manually (If you have SSL certificate problem)
-Download the Rubygems. You can get the latest version from [here](https://rubygems.org/pages/download){:target="_blank"} and more info about SSL issue [here](https://github.com/juthilo/run-jekyll-on-windows/issues/34){:target="_blank"}.
+
+Download the Rubygems. You can get the latest version from [here](https://rubygems.org/pages/download){:target="\_blank"} and more info about SSL issue [here](https://github.com/juthilo/run-jekyll-on-windows/issues/34){:target="\_blank"}.
 
 ```
 $ wget https://rubygems.org/gems/rubygems-update-2.6.10.gem --no-check-certificate
@@ -41,17 +44,19 @@ $ sudo apt-get install zlib1g-dev
 ```
 
 ### 4. Install Jekyll
-Now we start installing as Jekyll gem. More info from [here](http://jekyllrb.com/docs/installation/){:target="_blank"}.
+
+Now we start installing as Jekyll gem. More info from [here](http://jekyllrb.com/docs/installation/){:target="\_blank"}.
 
 `$ sudo gem install jekyll`
 
 ### 5. Install bundler gem
-This is also a gem but it manages others gems. More info from [here](http://bundler.io/){:target="_blank"}.
+
+This is also a gem but it manages others gems. More info from [here](http://bundler.io/){:target="\_blank"}.
 
 `$ sudo gem install bundler`
 
-
 ### 6. Setup Jekyll
+
 ```
 $ cd ~
 $ mkdir JekyllWorkSpace
@@ -63,10 +68,14 @@ $ bundle install
 
 > :exclamation: If you have again SSL certificate problem while you type in `sudo bundle install`, change `source "https://rubygems.org"` to `source "http://rubygems.org"` in `Gemfile` which is located in newly crated `myblog` folder.
 
-
 ### 7. Run server
+
 Now it's time to see the real action.
 
 `$ bundle exec jekyll serve`
 
 Now type this `http://localhost:4000` into any browser address. You should see a home page.
+<br>
+<br>
+
+> :memo: You can run with the specific port (eg. port 4010) by running this `bundle exec jekyll serve --port 4010` if port `4000` is in use.
