@@ -91,12 +91,12 @@ Last but not least,
 - [Google Cloud Tech Youtube channel](https://www.youtube.com/user/googlecloudplatform) by Google itself. 
 - [Google Cloud Skills Boost
 ](https://www.cloudskillsboost.google/) to sign up for courses
--  Take courses at Coursera (This time, you can get one month of free coures offered by Google - [check here](https://cloud.google.com/blog/topics/training-certifications/get-cloud-skills--training-needed-for-in-demand-job-roles?utm_source=youtube&utm_medium=unpaidsoc&utm_campaign=CDR_won_gcp_r2ylyjcq0lo_ThisWeekInCloud_111722&utm_content=description) ) 
+-  Take courses at Coursera (Sometimes, you can get one month of free coures offered by Google - [check here](https://cloud.google.com/blog/topics/training-certifications/get-cloud-skills--training-needed-for-in-demand-job-roles?utm_source=youtube&utm_medium=unpaidsoc&utm_campaign=CDR_won_gcp_r2ylyjcq0lo_ThisWeekInCloud_111722&utm_content=description) ) 
 
 
 
 > Tip 4: You can create a Google account and explore GCP with the `Google Cloud console` without linking your credit card. If you want to create resources in GCP, you can use `$300` in free credits to explore also.
 
-> Final tip: Practise. Review. Repeat. You need to practice with the mock exam. Exam questions are very tricky if you don't have enough practice. 
+> Final tip: Practise. Review. Repeat. You need to practice with the mock exam. Exam questions can be very tricky if you don't have enough practice. 
 
 I hope these tips and guides can help you prepare for Google certification. Good luck.
