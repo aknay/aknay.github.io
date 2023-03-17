@@ -18,6 +18,7 @@ gem 'jemoji', '~> 0.12.0'
 gem 'jekyll-paginate'
 gem 'jekyll-mermaid'
 gem "kramdown", ">= 2.3.1"
+gem "webrick", "~> 1.8"
 
 
 # If you want to use GitHub Pages, remove the "gem "jekyll"" above and
