@@ -86,10 +86,11 @@ You need to connect both virtual machines to NAT Network.
 1. Turn on both virtual machines.
 2. Go into each virtual machine and open the terminal.
 3. Type in the following command and take note of the IP address.
+
     ```
     ip addr show
     ```
-We need IP addresses from both machines. 
+We need IP addresses from both virtual machines. 
 
 ### 5.2 Install SSH server
 1. While we are the terminal, install `openssh server` using the following commmand for the both machines.
@@ -107,7 +108,7 @@ We need IP addresses from both machines.
 ### 5.3 SSH Port Fowarding 
 1. Go to the `NAT Network` dialog that you just created.
 2. Click `Port Fowarding` button.
-3. Add the following rules. You need to set the `Guest IP` as IP addresses that you just recorded from the previous section.
+3. Add the following rules. You need to set the `Guest IP` as IP addresses that you just recorded from the previous section 5.1.
 
     | Name       | Protocol | Host IP   | Host Port | Guest IP  | Guest Port |
     |------------|----------|-----------|-----------|-----------|------------|
@@ -119,7 +120,7 @@ We need IP addresses from both machines.
 ### 5.3 Test the SSH connection to Virtual Machines
 Let's ssh to our virtual machines.
 1. Make sure you already have ssh client installed on your physical machine. If not, use `sudo apt install openssh-client` to install.
-2. From your physical machine's terminal, I use the following command to connect to our master. 
+2. From your physical machine's terminal, I use the following command to connect to our `master` virtual machine. 
     
     ```
     ssh -p 2222 aknay@127.0.0.1
