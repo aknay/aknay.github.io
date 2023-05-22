@@ -7,6 +7,13 @@ excerpt_separator: <!-- excerpt -->
 This is the first part of a series of hands-on tutorials for deploying containerized flask application to a
 Kubernetes with Kubeadm on Virtual Machine.
 <!-- excerpt -->
+
+# Series
+1. [Part 1]({% post_url 2023-03-17-how-to-deploy-containerized-flask-application-to-a-kubernetes-with-kubeadm-on-virtual-machines-part-1%})
+2. [Part 2]({% post_url 2023-03-17-how-to-deploy-containerized-flask-application-to-a-kubernetes-with-kubeadm-on-virtual-machines-part-2%})
+2. [Part 3]({% post_url 2023-03-17-how-to-deploy-containerized-flask-application-to-a-kubernetes-with-kubeadm-on-virtual-machines-part-3%})
+
+
 # Overview
 In this tutorial we are going a create a Kubernetes cluster with 1 master and 1 worker using `Virtual Box`.
 

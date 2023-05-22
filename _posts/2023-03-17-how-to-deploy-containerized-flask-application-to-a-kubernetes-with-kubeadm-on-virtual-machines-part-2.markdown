@@ -11,7 +11,7 @@ Kubernetes with Kubeadm on Virtual Machines.
 # Series
 1. [Part 1]({% post_url 2023-03-17-how-to-deploy-containerized-flask-application-to-a-kubernetes-with-kubeadm-on-virtual-machines-part-1%})
 2. [Part 2]({% post_url 2023-03-17-how-to-deploy-containerized-flask-application-to-a-kubernetes-with-kubeadm-on-virtual-machines-part-2%})
-
+2. [Part 3]({% post_url 2023-03-17-how-to-deploy-containerized-flask-application-to-a-kubernetes-with-kubeadm-on-virtual-machines-part-3%})
 
 # Overview
 In this tutorial, we are going to 
@@ -149,6 +149,8 @@ kubeadm join 10.0.2.15:6443 --token 88jjbi.bi0onhiorwb0ifk5 \
     --discovery-token-ca-cert-hash sha256:038d7af07f1f68b91e1220eb4437cfbbc9068a78d4f944d464de97f1ce1803ec
 ```
 Once you joined to the cluster successfully, the `This node has joined the cluster` message will be displayed.
+
+> You can print the join command again with this `kubeadm token create --print-join-command`
 
 ## 4.3 Checking Nodes (Master only)
 You can check the nodes by running 

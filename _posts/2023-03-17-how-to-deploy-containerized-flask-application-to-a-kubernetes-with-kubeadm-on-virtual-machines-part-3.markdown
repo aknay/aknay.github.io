@@ -11,7 +11,7 @@ Kubernetes with Kubeadm on Virtual Machines.
 # Series
 1. [Part 1]({% post_url 2023-03-17-how-to-deploy-containerized-flask-application-to-a-kubernetes-with-kubeadm-on-virtual-machines-part-1%})
 2. [Part 2]({% post_url 2023-03-17-how-to-deploy-containerized-flask-application-to-a-kubernetes-with-kubeadm-on-virtual-machines-part-2%})
-2. [Part 3]({% post_url 2023-03-17-how-to-deploy-containerized-flask-application-to-a-kubernetes-with-kubeadm-on-virtual-machines-part-2%})
+2. [Part 3]({% post_url 2023-03-17-how-to-deploy-containerized-flask-application-to-a-kubernetes-with-kubeadm-on-virtual-machines-part-3%})
 
 
 # Overview
